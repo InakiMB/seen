@@ -54,13 +54,15 @@ public class CelularInterface : MonoBehaviour
         HistorialPantallasApp.Push(pantallaActual);
         Debug.Log($"Avanzó a: {pantallaActual.name}. Guardada en historial: {HistorialPantallasApp.Peek().name}");
     }
-    public void CambiarApp(GameObject appAbierto)
-    {
-        // Esto es un puntero automatico ???
+   public void CambiarApp(GameObject appAbierto)
+{
+    if (appActual != null && appActual != appAbierto)
         appActual.SetActive(false);
-        appActual = appAbierto;
-        appActual.SetActive(true);
-    }
+
+    appActual = appAbierto;
+    appActual.SetActive(true);
+}
+
     public void LimpiarHistorial()
     {
         HistorialPantallasApp.Clear();
